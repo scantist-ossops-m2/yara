@@ -1216,6 +1216,13 @@ static void test_modules()
   assert_true_rule(
       "import \"tests\" \
        rule test { \
+        condition: tests.integer_array[256] == 256 \
+      }",
+      NULL);
+
+  assert_true_rule(
+      "import \"tests\" \
+       rule test { \
         condition: tests.length(\"dummy\") == 5 \
       }",
       NULL);
